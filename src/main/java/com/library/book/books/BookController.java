@@ -20,12 +20,12 @@ public class BookController {
         return "Hello from Books";
     }
 
-    @GetMapping("/books")
+    @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks() {
         return ResponseEntity.ok(repository.findAll());
     }
 
-    @GetMapping("/book/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Book> getBook(@PathVariable Long id) {
         return ResponseEntity.ok(repository.findById(id).orElse(new Book()));
     }
